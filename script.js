@@ -1,16 +1,28 @@
-function toggleSkill() {
-    // Get the skill paragraph and button
-    const skillText = document.getElementById('skillText');
-    const button = document.getElementById('skillButton');
+// Scroll reveal
+const reveals = document.querySelectorAll(".reveal");
 
-    // Check current state and toggle
-    if (skillText.style.display === "none" || skillText.style.display === "") {
-        skillText.style.display = "block"; // show skill
-        skillText.textContent = " Coding and Design 💻✨";
-        button.textContent = "Hide Skill ";
-    } else {
-        skillText.style.display = "none"; // hide skill
-        skillText.textContent = "";
-        button.textContent = "Show Skill ";
+function revealOnScroll() {
+  reveals.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if (top < windowHeight - 100) {
+      section.classList.add("active");
     }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+// Skills show/hide
+function toggleSkills() {
+  document.getElementById("skillList").classList.toggle("hidden");
+}
+
+// Read More / Less with smooth slide
+function toggleMore(btn) {
+  const container = btn.previousElementSibling;
+  container.classList.toggle("show");
+  btn.textContent = container.classList.contains("show") ? "Read Less" : "Read More";
 }
