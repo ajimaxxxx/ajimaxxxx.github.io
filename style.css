@@ -29,12 +29,13 @@ body {
 
 /* Hero */
 .hero {
-  height: 100vh;
+  height: 80vh; /* shorter so next section peek shows */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 
 .hero h1 {
@@ -52,6 +53,28 @@ body {
 .subtitle {
   font-size: 1.2rem;
   margin-top: 10px;
+}
+
+/* Scroll down indicators */
+.peek-next {
+  margin-top: 20px;
+  color: #1d4ed8;
+  font-size: 1.1rem;
+  animation: bounce 1.5s infinite;
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  font-size: 2rem;
+  color: #2563eb;
+  animation: bounce 1.5s infinite;
+  cursor: pointer;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(15px); }
 }
 
 /* Sections */
